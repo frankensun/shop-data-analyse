@@ -1,0 +1,12 @@
+read_table = function(filename, sheet_num=1, filetype='xlsx') {
+    if(filetype=='xlsx') {
+        library(xlsx)
+        data = read.xlsx(filename, sheet_num, fixed=TRUE, encoding='UTF-8')
+        return(data)
+    }
+}
+
+tmall_shop_client = function(table, columns=c('统计日期', '星期', '访客数', '商品收藏人数', '下单且支付买家数')) {
+    data = table[, columns]
+    return(data)
+}
